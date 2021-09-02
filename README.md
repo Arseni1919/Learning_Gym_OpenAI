@@ -11,6 +11,7 @@
 - [Extra Gym functionality – wrappers and monitors](https://github.com/Arseni1919/Learning_Gym_OpenAI#extra-gym-functionality--wrappers-and-monitors)
 - [Wrappers](https://github.com/Arseni1919/Learning_Gym_OpenAI#wrappers)
 - [Monitor](https://github.com/Arseni1919/Learning_Gym_OpenAI#monitor)
+- [Summary](https://github.com/Arseni1919/Learning_Gym_OpenAI#summary)
 - [Credits](https://github.com/Arseni1919/Learning_Gym_OpenAI#credits)
 
 --------
@@ -28,6 +29,8 @@ print(counter)
 ```
 
 ## The OpenAI Gym API
+
+[(back)](https://github.com/Arseni1919/Learning_Gym_OpenAI#contents)
 
 The Python library called Gym was developed and has been maintained by OpenAI ([www.openai.com](https://www.openai.com/)).
 The main goal of Gym is to provide a rich collection of environments for RL experiments using a unified interface.
@@ -47,6 +50,8 @@ Let's now talk about these components of the environment in detail.
 
 ### The action space
 
+[(back)](https://github.com/Arseni1919/Learning_Gym_OpenAI#contents)
+
 As mentioned, the actions that an agent can execute can be discrete, continuous, or
 a combination of the two. Discrete actions are a fixed set of things that an agent can
 do, for example, directions in a grid like left, right, up, or down. Another example
@@ -65,12 +70,17 @@ defines a special container class that allows the nesting of several action spac
 one unified action.
 
 ### The observation space
+
+[(back)](https://github.com/Arseni1919/Learning_Gym_OpenAI#contents)
+
 Observations are pieces of information that an environment provides the agent with, on every timestamp, besides the reward.
 Observations can be as simple as a bunch of numbers or as complex as several multidimensional tensors containing color images from several cameras.
 An observation can even be discrete, much like action spaces.
 An example of a discrete observation space is a lightbulb, which could be in two states – on or off, given to us as a Boolean value.
 
 ### Spaces
+
+[(back)](https://github.com/Arseni1919/Learning_Gym_OpenAI#contents)
 
 So, you can see the similarity between actions and observations, and how they have found their representation in Gym's classes.
 Let's look at a class diagram:
@@ -148,6 +158,8 @@ generic code.
 
 ### The environment
 
+[(back)](https://github.com/Arseni1919/Learning_Gym_OpenAI#contents)
+
 The environment is represented in Gym by the `Env` class, as mentioned earlier, which
 has the following members:
 
@@ -218,6 +230,8 @@ done flag becomes True. Then we can call `reset()` to start over. There is only 
 piece missing – how we create `Env` objects in the first place.
 
 ### Creating an environment
+
+[(back)](https://github.com/Arseni1919/Learning_Gym_OpenAI#contents)
 
 Every environment has a unique name of the EnvironmentName-vN form,
 where N is the number used to distinguish between different versions of the same
@@ -291,6 +305,8 @@ Enough theory! Let's now look at a Python session working with one of Gym's
 environments.
 
 ###  The CartPole session
+
+[(back)](https://github.com/Arseni1919/Learning_Gym_OpenAI#contents)
 
 Let's apply our knowledge and explore one of the simplest RL environments that
 Gym provides.
@@ -423,12 +439,18 @@ episode is over, we stop the loop and show how many steps we have taken and
 how much reward has been accumulated.
 
 ## Extra Gym functionality – wrappers and monitors
+
+[(back)](https://github.com/Arseni1919/Learning_Gym_OpenAI#contents)
+
 What we have discussed so far covers two-thirds of the Gym core API and the
 essential functions required to start writing agents. The rest of the API you can live
 without, but it will make your life easier and your code cleaner. So, let's briefly cover
 the rest of the API.
 
 ## Wrappers
+
+[(back)](https://github.com/Arseni1919/Learning_Gym_OpenAI#contents)
+
 Very frequently, you will want to extend the environment's functionality in some
 generic way. For example, imagine an environment gives you some observations,
 but you want to accumulate them in some buffer and provide to the agent the N
@@ -538,6 +560,8 @@ Gym: `Monitor`.
 
 ### Monitor
 
+[(back)](https://github.com/Arseni1919/Learning_Gym_OpenAI#contents)
+
 Another class that you should be aware of is `Monitor`. It is implemented like
 `Wrapper` and can write information about your agent's performance in a file, with
 an optional video recording of your agent in action.
@@ -563,6 +587,8 @@ FFmpeg is using your system's package manager, which is OS distribution-specific
 
 ## Summary
 
+[(back)](https://github.com/Arseni1919/Learning_Gym_OpenAI#contents)
+
 You have started to learn about the practical side of RL! In this chapter, we installed
 OpenAI Gym, with its tons of environments to play with. We studied its basic API
 and created a randomly behaving agent.
@@ -574,6 +600,8 @@ library among DL researchers. Stay tuned.
 
 
 ## Credits
+
+[(back)](https://github.com/Arseni1919/Learning_Gym_OpenAI#contents)
 
 - [Gym OpenAI wiki | GitHub](https://github.com/openai/gym/wiki)
 - [Environments | OpenAI](http://gym.openai.com/envs/#classic_control)
