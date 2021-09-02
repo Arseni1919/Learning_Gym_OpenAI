@@ -55,11 +55,79 @@ Observations can be as simple as a bunch of numbers or as complex as several mul
 An observation can even be discrete, much like action spaces.
 An example of a discrete observation space is a lightbulb, which could be in two states – on or off, given to us as a Boolean value.
 
-Spaces
+### Spaces
+
 So, you can see the similarity between actions and observations, and how they have found their representation in Gym's classes.
 Let's look at a class diagram:
 
 ![spaces](static/spaces.png)
+
+The basic abstract class Space includes two methods that are relevant to us:
+
+- `sample()`: This returns a random sample from the space
+
+- `contains(x)`: This checks whether the argument, x, belongs to the space's
+domain
+
+Both of these methods are abstract and reimplemented in each of the Space
+subclasses:
+
+- The `Discrete` class represents a mutually exclusive set of items, numbered
+from 0 to n – 1. Its only field, `n`, is a count of the items it describes. For
+example, `Discrete(n=4)` can be used for an action space of four directions
+to move in `[left, right, up, or down]`.
+
+- The `Box` class represents an n-dimensional tensor of rational numbers
+with intervals `[low, high]`. For instance, this could be an accelerator pedal
+with one single value between 0.0 and 1.0, which could be encoded by
+`Box(low=0.0, high=1.0, shape=(1,), dtype=np.float32)`(the `shape`
+argument is assigned a tuple of length 1 with a single value of 1, which
+gives us a one-dimensional tensor with a single value). The `dtype` parameter
+specifies the space's value type and here we specify it as a NumPy 32-bit
+float. Another example of `Box` could be an Atari screen observation (we
+will cover lots of Atari environments later), which is an RGB (red, green,
+and blue) image of size 210×160: `Box(low=0, high=255, shape=(210, 160,
+3), dtype=np.uint8)`. In this case, the `shape` argument is a tuple of three
+elements: the first dimension is the height of the image, the second is the
+width, and the third equals 3, which all correspond to three color planes
+for red, green, and blue, respectively. So, in total, every observation is
+a three-dimensional tensor with 100,800 bytes.
+
+- The final child of `Space` is a `Tuple` class, which allows us to combine
+several Space class instances together. This enables us to create action
+and observation spaces of any complexity that we want. For example,
+imagine we want to create an action space specification for a car. The car
+has several controls that can be changed at every timestamp, including the
+steering wheel angle, brake pedal position, and accelerator pedal position.
+These three controls can be specified by three float values in one single `Box`
+instance. Besides these essential controls, the car has extra discrete controls,
+like a turn signal (which could be off, right, or left) or horn (on or off). To
+combine all of this into one action space specification class, we can create
+`Tuple(spaces=(Box(low=-1.0, high=1.0, shape=(3,), dtype=np.
+float32), Discrete(n=3),Discrete(n=2)))`. This flexibility is rarely used;
+for example, in this book, you will see only the Box and Discrete actions
+and observation spaces, but the Tuple class can be useful in some cases.
+
+---
+
+There are other Space subclasses defined in Gym, but the preceding three are the
+most useful ones. All subclasses implement the `sample()` and `contains()` methods.
+The `sample()` function performs a random sample corresponding to the `Space` class
+and parameters. This is mostly useful for action spaces, when we need to choose the
+random action. The `contains()` method verifies that the given arguments comply
+with the `Space` parameters, and it is used in the internals of Gym to check an agent's
+actions for sanity. For example, `Discrete.sample()` returns a random element from
+a discrete range, and `Box.sample()` will be a random tensor with proper dimensions
+and values lying inside the given range.
+
+Every environment has two members of type `Space`: the action_space and
+observation_space. This allows us to create generic code that could work with
+any environment. Of course, dealing with the pixels of the screen is different from
+handling discrete observations (as in the former case, we may want to preprocess
+images with convolutional layers or with other methods from the computer vision
+toolbox); so, most of the time, this means optimizing the code for a particular
+environment or group of environments, but Gym doesn't prevent us from writing
+generic code.
 
 
 
