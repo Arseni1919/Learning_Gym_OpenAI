@@ -1,4 +1,4 @@
-# Learning Gym Environments (OpenAI)
+# Learning Gym Environment (OpenAI)
 
 ## Contents
 
