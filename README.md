@@ -604,6 +604,7 @@ library among DL researchers. Stay tuned.
 [(back)](https://github.com/Arseni1919/Learning_Gym_OpenAI#contents)
 
 - [Gym OpenAI wiki | GitHub](https://github.com/openai/gym/wiki)
+- [Table of environments | GitHub wiki](https://github.com/openai/gym/wiki/Table-of-environments)
 - [Environments | OpenAI](http://gym.openai.com/envs/#classic_control)
 - [Docs | OpenAI](http://gym.openai.com/docs/)
 - [Creating new Gym Env | OpenAI](https://github.com/openai/gym/blob/master/docs/creating-environments.md)
