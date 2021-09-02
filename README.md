@@ -1,5 +1,20 @@
 # Learning Gym Environments (OpenAI)
 
+## Contents
+
+- [The OpenAI Gym API](https://github.com/Arseni1919/Learning_Gym_OpenAI#the-openai-gym-api)
+- [The action space](https://github.com/Arseni1919/Learning_Gym_OpenAI#the-action-space)
+- [The observation space](https://github.com/Arseni1919/Learning_Gym_OpenAI#the-observation-space)
+- [Spaces](https://github.com/Arseni1919/Learning_Gym_OpenAI#spaces)
+- [The environment](https://github.com/Arseni1919/Learning_Gym_OpenAI#the-environment)
+- [The CartPole session](https://github.com/Arseni1919/Learning_Gym_OpenAI#the-cartpole-session)
+- [Extra Gym functionality – wrappers and monitors](https://github.com/Arseni1919/Learning_Gym_OpenAI#extra-gym-functionality--wrappers-and-monitors)
+- [Wrappers](https://github.com/Arseni1919/Learning_Gym_OpenAI#wrappers)
+- [Monitor](https://github.com/Arseni1919/Learning_Gym_OpenAI#monitor)
+- [Credits](https://github.com/Arseni1919/Learning_Gym_OpenAI#credits)
+
+--------
+
 ```python
 #!/usr/bin/env python
 # prints all the names of envs that we have
@@ -558,7 +573,7 @@ In the next chapter, we will do a quick DL recap using PyTorch, which is a favor
 library among DL researchers. Stay tuned.
 
 
-## Credits:
+## Credits
 
 - [Gym OpenAI wiki | GitHub](https://github.com/openai/gym/wiki)
 - [Environments | OpenAI](http://gym.openai.com/envs/#classic_control)
